@@ -1,0 +1,227 @@
+
+>>>>>> Splunk Archtecture <<<<<  Distributed Non-Clustered Archtecture
+
+1) Universal Forwarder ( UF ) -- Splunk universal forwarder package 
+
+CLI --- Command line interface 
+
+Splunk Enterprise Package ---- CLI + GUI ( Graphical User Interface ) 
+
+2) Heavy Forwarder ( HF )
+
+a) Parsing 
+
+this is hitesh 
+this is shiva
+this is mostafa 
+
+this is hitesh 
+
+this is shiva
+
+this is mostafa 
+
+
+------------------------
+
+this is hitesh, and he is 34 year old,
+this is shiva, and he is 29 years old,
+this is mostafa, and he is 25 years old,
+this is mostafa| and he is 25 years old|
+
+
+this is hitesh
+
+and he is 34 year old
+
+this is shiva
+
+and he is 29 years old
+
+this is mostafa
+
+and he is 25 years old
+
+
+------ Masking ------ 
+
+this is ayan and his acc numebr is 101474986
+this is shiva and his acc number is 4974892569
+
+
+
+
+this is ayan and his acc numebr is xxxx4986
+
+this is shiva and his acc number is xxxx2569
+
+
+b) Filtering --- transforms.conf 
+
+this is ayan and he logged in from 198.67.89.29
+this is soumendu and he logged out from 198.156.67.89
+this is raja and he logged in from 192.123.78.90
+
+
+this is ayan and he logged in from 198.67.89.29
+
+this is raja and he logged in from 192.123.78.90
+
+
+----------
+
+
+
+this is ayan and he logged in from 198.67.89.29
+this is soumendu and he logged out from 198.156.67.89
+this is raja and he logged in from 192.123.78.90
+
+
+logged_out ---
+this is soumendu and he logged out from 198.156.67.89
+
+
+
+exclude_log_out ---
+
+this is ayan and he logged in from 198.67.89.29
+
+this is raja and he logged in from 192.123.78.90
+
+
+
+3) Indexer ( IDX ) --- indexes.conf 
+
+-----
+hdd1 -- apple-windows
+
+hdd2 --- apple-windows
+
+hdd3 --- apple-windows
+
+
+-------
+
+
+Indexes ---
+
+aus 
+rsa
+
+windows 
+
+apache 
+
+palo-alto 
+
+apple-windows 
+
+tsc-windows 
+
+----------- tsc-windows 
+--------------------------
+
+1000
+
+
+ ------------------------------ metadata ------
+ -------------------------------------------- host -- ip address or hostname of the apllication ( LAPTOP-AVN85P2N, 192.168.0.100 )
+ -------------------------------------------- source --- actual path of the data ( C:\Users\Trivid\Desktop\Data April\Accenture Feb 2021\atrchitecute.txt | /var/log/secure | /tmp/application/abc.txt )
+ -------------------------------------------- sourcetype -----  C:\Users\Trivid\Desktop\Data April\Accenture Feb 2021\atrchitecute.txt --- acc_t
+                                                         -----  C:\Users\Trivid\Desktop\Data April\Accenture Feb 2021\config.txt
+														 
+														 ----  C:\Users\Trivid\Desktop\Data April\Accenture Feb 2021\atrchitecute.xml --- acc_x 
+														 ----  C:\Users\Trivid\Desktop\Data April\Accenture Feb 2021\config.xml 
+
+fbb ---
+
+
+C:\Users\Trivid\Desktop\sales-12th-apr.txt ---- saleslog
+C:\Users\Trivid\Desktop\sales-13th-apr.txt 
+C:\Users\Trivid\Desktop\sales-14th-apr.txt
+
+ 
+C:\Users\Trivid\Desktop\purchase-12th-apr.txt ---- purchaselog 
+C:\Users\Trivid\Desktop\purchase-13th-apr.txt 
+
+
+4) Search Head ( SH )  -- SPL -- Splunk Search Processing Language - distsearch.conf 
+
+
+5) Deployment Server ( DS )
+
+linux-001
+linux-002
+linux-003 ---- blacklist 
+linux-004
+
+
+
+
+
+
+
+linux-* 
+
+linux-003
+
+198.56.78.12:9997 
+
+
+
+
+linux-cisco ----
+
+
+
+
+
+6) License Master ( LM )
+
+-----
+
+License Stacking ---- 5GB + 100GB ---- 105GB
+
+License Pooling ----
+
+Pool-A --- 90GB ---- Indexers ---- warning
+Pool-B --- 15GB ---- SH , DS 
+
+/tmp/abc.txt --- 10gb
+
+/temp/abc.txt ---- 200gb
+
+
+
+------------
+> 5 times in rolling period 30 days 
+
+8th may ---- 1 ---- warning 
+9th may --- 2 
+10th may --- 3
+11th may ---4 
+12th may --- 5 
+
+
+13th may ---- violating 
+
+7th june
+
+< 6.5 ( Splunk Version ) -- Enforcement License --- Indexing will continue --- Searching will be blocked ----  "litsearch" error 
+>= 6.5 ( Splunk Version ) --- No-Enforcement License --Indexing will continue -- Searching continue -- Splunk can take any legal action against your company 
+
+---------------------------- License Master Goes Down -------------------------
+
+>72 hours ---- Indexing Continues --- Searching Blocks 
+
+
+--------------- License Expires -------
+
+Indexing Continues --- Searching Blocks 
+
+
+
+
+
+
+
