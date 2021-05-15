@@ -1,3 +1,15 @@
 index=_internal  sourcetype=splunkd_ui_access  | table user,status | dedup user,status
 
 Exclude all the status value 300 - 399.
+
+
+Ans : index=_internal sourcetype=splunkd_ui_access 
+| table user,status 
+| dedup user,status 
+| search  status <300 OR status  >399
+
+Ans : 
+index=_internal sourcetype=splunkd_ui_access 
+| table user,status 
+| dedup user,status 
+| search  (status>0 AND status<300) OR status>399
