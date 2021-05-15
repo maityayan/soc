@@ -11,3 +11,22 @@ file
 control
 summary
 timeline
+
+Ans : --
+index=_internal sourcetype=splunkd_ui_access 
+| fields file 
+| dedup file 
+| table file 
+| head 6 
+| tail 3 
+| reverse
+
+Ans : 
+
+index=_internal sourcetype=splunkd_ui_access 
+| fields file 
+| dedup file 
+| table file 
+| head 6 | reverse | head 3 | reverse
+
+
