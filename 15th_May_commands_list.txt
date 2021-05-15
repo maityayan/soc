@@ -1,0 +1,59 @@
+
+
+| rename <old_field_name1> as <new_field_name1>,<old_field_name2> as <new_field_name2>............
+
+index=_internal sourcetype=splunkd_ui_access 
+| fields user,status,method,bytes,date_*
+| table user,status,date_*
+| dedup user,status | rename date_* as *
+
+
+
+| replace <old_field_value> with <new_field_value> in <field_name>
+
+index=_internal sourcetype=splunkd_ui_access 
+| fields user,status,method,bytes,date_*
+| table user,status
+| dedup user,status  | replace "trainer" with "Ayan", "student1" with "Ajeet" in user
+
+
+index=_internal sourcetype=splunkd_ui_access 
+| fields user,status,method,bytes,date_*
+| table user,status
+| dedup user,status | rename "student" with "candidate*" in user 
+
+
+a 
+b 
+c 
+d 
+e 
+f 
+g 
+h 
+i 
+j 
+k 
+l 
+
+| head
+
+
+a 
+b 
+c 
+d 
+e 
+f 
+g 
+h 
+i 
+j 
+
+| tail 
+l 
+k 
+j 
+..... 
+
+
