@@ -1,0 +1,3 @@
+index=_internal  sourcetype=splunkd_ui_access  | table user,status | dedup user,status
+
+Exclude all the status value 300 - 399.
