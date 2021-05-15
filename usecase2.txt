@@ -36,6 +36,15 @@ index=_internal sourcetype=splunkd_ui_access
 | dedup file 
 | table file | streamstats count | search count>3 AND count<=6 | fields - count
 
+Ans : 
+
+index=_internal sourcetype=splunkd_ui_access 
+| fields file 
+| dedup file 
+| table file | eval count="1" | accum count | search count>3 AND count<=6 | fields - count
+
+
+
 
 
 
