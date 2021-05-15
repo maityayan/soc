@@ -1,0 +1,13 @@
+
+index=_internal sourcetype=splunkd_ui_access | fields file | dedup file | table file
+
+run this query in between 9th may to 13th may 
+
+pick only the 4th,5th and 6th row 
+
+output : 
+
+file 
+control
+summary
+timeline
