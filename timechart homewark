@@ -1,0 +1,5 @@
+index=_internal sourcetype=splunkd_ui_access | timechart count by file
+
+---- What is meaning of the NULL and OTHER field with timechart command 
+---- How to remove these fields 
+---- How to see infinite number of columns with timechart command 
