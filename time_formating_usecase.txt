@@ -6,3 +6,16 @@ index="testing" sourcetype="datelogg" |table login_time,name
 
 ---- Get the timeformat in 23/05/21 1:00 am ---
 ---- Who login at the very last and show his time of login 
+
+
+Ans : 
+1) index="testing" sourcetype="datelogg" 
+| table login_time,name 
+| eval epoch=strptime(login_time,"%Y-%b-%d %H:%M"),time=strftime(epoch,"%Y-%b-%d %I:%M %P") | fields name,time
+
+2) 
+
+index="testing" sourcetype="datelogg" 
+| table login_time,name 
+| eval epoch=strptime(login_time,"%Y-%b-%d %H:%M"),time=strftime(epoch,"%Y-%b-%d %I:%M %P") 
+| sort - epoch | head 1 | fields name,time
