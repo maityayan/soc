@@ -1,0 +1,31 @@
+-------------------------------- Time Conversion Functions ---------------------------
+strptime --- convertes human readable format to epoch/unix timeformat 
+strftime --- convertes epoch/unix timeformat  to human readable format
+
+23rd May 2021 9:37 pm 
+
+
+1970 1st Jan 12:00am 
+
+
+----- 
+%d -- date 
+
+%m - month ( 01,02,03 .....)
+%b - month ( Jan,Feb,Mar...)
+%B - month ( January,February ....)
+
+%y - 19,20,21 ( 2019,2020,2021 ...)
+%Y - 2019,2020,2021
+
+
+%H -- hour ( 24hour clock, 0 -23)
+%I --- hour ( 12 hour clock,0-12)
+
+%M -- Minute ( 0 -59 )
+%S - Second ( 0- 59)
+%3N -- milisecond ( 0 -999)
+
+
+am,pm --- %P
+AM,PM --- %p 
