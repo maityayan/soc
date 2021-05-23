@@ -1,0 +1,7 @@
+index=testing sourcetype=testlog | table Name,Title
+
+Output----
+Full Name
+Ayan Maity
+Ronak Singh
+Soumendu Bera
