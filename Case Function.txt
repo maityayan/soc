@@ -1,0 +1,5 @@
+index="testing" sourcetype="testlog"| table Name | dedup Name 
+| eval Designation=if(Name="Ronak","Manager",if(Name="Soumendu","TL","Admin"))
+
+
+Create the similar output using case function.
