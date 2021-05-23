@@ -5,3 +5,10 @@ Full Name
 Ayan Maity
 Ronak Singh
 Soumendu Bera
+
+
+Ans : 
+index=testing sourcetype=testlog 
+| table Name,Title 
+| eval "Full Name"=Name." ".Title | fields "Full Name"
+
