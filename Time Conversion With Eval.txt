@@ -29,3 +29,43 @@ strftime --- convertes epoch/unix timeformat  to human readable format
 
 am,pm --- %P
 AM,PM --- %p 
+
+
+
+23 May 2021 21:49 ----- 23/05/21 9:49 pm 
+
+
+
+date 
+
+23 May 2021 21:49 
+
+| eval epoch=strptime(humnan_readable_time_field,"%d %b %Y %H:%M")
+
+
+
+2021-05-22 21:30:00
+
+
+22/May/21 9:30 pm 
+
+
+
+
+| eval human=strftime(epoch_time_format_field,"%d/%b/%y %I:%M %p")
+
+
+2021-May-22 21:30
+
+
+| eval epoch=strptime(human,"%Y-%B-%d %H:%M")
+
+
+2021-May-22 21:30
+
+Date
+
+05/22/21 21:30
+
+
+| eval Date=strftime(epoch,"%m/%d/%y %H:%M")
