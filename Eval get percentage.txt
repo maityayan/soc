@@ -1,0 +1,9 @@
+index=_internal sourcetype=splunkd_ui_access 
+| stats count by method,status
+
+
+-----
+Output 
+
+method status count status_pct    count_pct
+A        2      3     40.00 %        60.00 %     
