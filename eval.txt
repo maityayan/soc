@@ -1,0 +1,145 @@
+ | eval <destination_field_name>=<boolean_expression>
+ 
+ 
+ | eval rr=round(<field_name>,<n>)   --- <n> --- positive integer 0,1,2,.....
+ 
+ | eval rr=round(rr,<n>)
+ 
+ 
+ index=_internal sourcetype=splunkd_ui_access 
+| stats count by method,status 
+| eval sum=status+count , mul=status*sum , div=round((status/count),2)
+ 
+ index=_internal sourcetype=splunkd_ui_access | stats avg(status) as average by method | eval average=round(average,3)
+ 
+ 
+ How to do the round off with the timechart command ( Very Much Important )
+ 
+ index=_internal sourcetype=splunkd_ui_access | timechart eval(round(avg(status),2)) as average by file  | fillnull
+ 
+ Round up to 0 decimal 
+ index=_internal sourcetype=splunkd_ui_access | stats avg(status) as average by method | eval average=round(average)
+ index=_internal sourcetype=splunkd_ui_access | stats avg(status) as average by method | eval average=round(average,0)
+ 
+ 
+index=testing sourcetype=testlog 
+| table Name,Title 
+| eval "Full Name"=Name." ".Title | fields "Full Name" | eval "Full Name"=lower('Full Name')
+
+index=testing sourcetype=testlog 
+| table Name,Title 
+| eval "Full Name"=Name." ".Title | fields "Full Name" | eval "Full Name"=upper('Full Name')
+
+index=testing sourcetype=testlog 
+| table Name,Title 
+| eval "Full Name"=Name." ".Title | fields "Full Name" | eval Length=len('Full Name')
+
+-------------------------------------- Conditional Functions --------------------------------------
+IF 
+
+| eval <destination_field_name>=if(condition,value,else) 
+
+
+| eval Designation=if(Name="Ronak","Manager","Admin")
+
+index="testing" sourcetype="testlog"| table Name | dedup Name | eval Designation=if(Name="Ronak","Manager","Admin")
+
+index="testing" sourcetype="testlog"| table Name | dedup Name | eval Designation=if(Name="Ronak" OR Name="Soumendu","Manager","Admin")
+
+Nested If ----
+
+| eval <destination_field_name>=if(condition1,value1,if(condition2,value2,else)) 
+
+index="testing" sourcetype="testlog"| table Name | dedup Name 
+| eval Designation=if(Name="Ronak","Manager",if(Name="Soumendu","TL","Admin"))
+
+index="testing" sourcetype="testlog"| table Name | dedup Name 
+| eval Designation=if(Name="Ronak","Manager",if(Name="Soumendu","TL","Admin"))
+
+CASE ----
+
+| eval <destination_field_name>=if(case1,value1,case2,value2,case3,value3..................,default_case,default_value)
+
+| eval Designation=case(Name="Ronak","Manager") 
+
+
+
+-------------------------------- Time Conversion Functions ---------------------------
+strptime --- convertes human readable format to epoch/unix timeformat 
+strftime --- convertes epoch/unix timeformat  to human readable format
+
+23rd May 2021 9:37 pm 
+
+
+1970 1st Jan 12:00am 
+
+
+----- 
+%d -- date 
+
+%m - month ( 01,02,03 .....)
+%b - month ( Jan,Feb,Mar...)
+%B - month ( January,February ....)
+
+%y - 19,20,21 ( 2019,2020,2021 ...)
+%Y - 2019,2020,2021
+
+
+%H -- hour ( 24hour clock, 0 -23)
+%I --- hour ( 12 hour clock,0-12)
+
+%M -- Minute ( 0 -59 )
+%S - Second ( 0- 59)
+%3N -- milisecond ( 0 -999)
+
+
+am,pm --- %P
+AM,PM --- %p 
+
+
+
+23 May 2021 21:49 ----- 23/05/21 9:49 pm 
+
+
+
+date 
+
+23 May 2021 21:49 
+
+| eval epoch=strptime(humnan_readable_time_field,"%d %b %Y %H:%M")
+
+
+
+2021-05-22 21:30:00
+
+
+22/May/21 9:30 pm 
+
+
+
+
+| eval human=strftime(epoch_time_format_field,"%d/%b/%y %I:%M %p")
+
+
+2021-May-22 21:30
+
+
+| eval epoch=strptime(human,"%Y-%B-%d %H:%M")
+
+
+2021-May-22 21:30
+
+Date
+
+05/22/21 21:30
+
+
+| eval Date=strftime(epoch,"%m/%d/%y %H:%M")
+
+
+
+
+
+
+
+
