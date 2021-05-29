@@ -9,3 +9,29 @@ Get the Total Cost Row
 
 
 Ans : 
+
+index=_internal sourcetype=splunkd_ui_access 
+| dedup method 
+| table method,status,bytes
+| rename method as product , status as service_cost,bytes as transport_cost  | addcoltotals labelfield=product label="Total Cost" 
+| tail 1
+
+
+index=_internal sourcetype=splunkd_ui_access 
+| dedup method 
+| table method,status,bytes
+| rename method as product , status as service_cost,bytes as transport_cost  | addcoltotals labelfield=product label="Total Cost" | reverse  
+| head 1
+
+
+index=_internal sourcetype=splunkd_ui_access 
+| dedup method 
+| table method,status,bytes
+| rename method as product , status as service_cost,bytes as transport_cost  | addcoltotals labelfield=product label="Total Cost" | search product="Total Cost"
+
+
+index=_internal sourcetype=splunkd_ui_access 
+| dedup method 
+| table method,status,bytes
+| rename method as product , status as service_cost,bytes as transport_cost  | addcoltotals labelfield=product label="Total Cost" | where product="Total Cost"
+
