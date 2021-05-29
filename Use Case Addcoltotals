@@ -1,0 +1,11 @@
+index=_internal sourcetype=splunkd_ui_access 
+| dedup method 
+| table method,status,bytes
+| rename method as product , status as service_cost,bytes as transport_cost  | addcoltotals labelfield=product label="Total Cost"
+
+
+-------
+Get the Total Cost Row
+
+
+Ans : 
