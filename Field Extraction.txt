@@ -1,0 +1,37 @@
+
+>>>>> Field Extraction <<<<<<<
+1) Index Time Field Extraction 
+2) Search Time Field Extraction 
+   a) Interactive Field Extractor ( IFX )
+   b) REGEX ( | rex )
+   
+--------------------------------------------------------------------- 
+
+
+| rex 
+
+....... | rex field=<field_name>  ".......(?<new_field_name>.......)....."
+
+
+index=abc sourcetype=testlog  
+
+This is Ayan and he lives in Kolkata 
+
+This is Shiva and he lives in Hyderabad 
+
+@${[(*&?
+
+index=abc sourcetype=testlog  | rex field=_raw ".....(?<Name>....)....."
+
+\w -- word or character 
+\d -- digit 
+\s -- space 
+? -- 0 or more occurances
++ -- 1 or more occurances
+.* -- All / Everything 
+\@
+\$
+\{
+\?
+
+
