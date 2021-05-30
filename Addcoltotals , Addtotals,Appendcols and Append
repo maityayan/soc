@@ -1,0 +1,46 @@
+ | addcoltotals 
+ 
+ 
+ | addtotals 
+ 
+ index=_internal sourcetype=splunkd_ui_access 
+| dedup method 
+| table method,status,bytes,date_minute
+| rename method as product , status as service_cost,bytes as transport_cost | addtotals service_cost,transport_cost
+
+
+ index=_internal sourcetype=splunkd_ui_access 
+| dedup method 
+| table method,status,bytes
+| rename method as product , status as service_cost,bytes as transport_cost | addtotals fieldname="Cost"
+
+index=_internal sourcetype=splunkd_ui_access 
+| dedup method 
+| table method,status,bytes
+| rename method as product , status as service_cost,bytes as transport_cost | addtotals fieldname="Total Cost" col=t labelfield=product label="Total Cost"
+
+
+
+
+| appendcols 
+
+
+Query 1 | appendcols [ | search Query 2 ]
+
+
+index=_internal sourcetype=splunkd_ui_access | stats count by method | appendcols override=t [ | search index=_audit | stats count  by info ]
+
+
+| append
+
+
+Query 1 | append  [ | search Query 2 ]
+
+index=_internal sourcetype=splunkd_ui_access | stats count by method | append  [ | search index=_audit | stats count  by info ]
+
+
+
+
+
+
+
