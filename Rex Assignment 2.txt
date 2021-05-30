@@ -1,0 +1,20 @@
+index=main sourcetype="namelog" 
+| rex field=_raw "(?<FName>\w+)\s+(\w+\s+|)(?<LName>\w+)" 
+| rex field=_raw "\w+\s+(?<MName>\w+)\s+\w+" | table FName,MName,LName
+
+
+----------------------
+
+FName	      MName     	LName
+Soumendu	 	             Bera
+Shiva	     Kumar	       Prasad
+Ayan	 	                  Maity
+
+---------------------
+
+Outupt : ---
+
+Name 
+S. Bera
+S. K. Prasad
+A. Maity
