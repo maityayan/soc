@@ -1,0 +1,6 @@
+192.168.79.110 - student3 [30/May/2021:20:06:05.160 +0530] "POST /en-US/splunkd/__raw/servicesNS/nobody/search/search/jobs/1622385121.26391/control HTTP/1.1" 200 59 "-" 
+"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36" - 644b625cb82475d5c6e8ec329c148706 2ms
+
+---- Extract ---- 644b625cb82475d5c6e8ec329c148706 as transaction_id_<studentid>
+
+index=_internal sourcetype=splunkd_ui_access |
