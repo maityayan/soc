@@ -1,0 +1,6 @@
+(index=_internal sourcetype=splunkd_ui_access)  | stats count by method,status
+
+------ create a macro test_<student_id>
+
+------
+so that user can put method,status values
