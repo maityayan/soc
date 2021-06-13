@@ -1,0 +1,1 @@
+IPS vs IDS -- https://www.varonis.com/blog/ids-vs-ips/
