@@ -4,3 +4,5 @@ DDoS --- https://www.varonis.com/blog/what-is-a-ddos-attack/
 Botnet --- https://www.varonis.com/blog/the-mirai-botnet-attack-and-revenge-of-the-internet-of-things/
 Killchain Process --- https://www.varonis.com/blog/cyber-kill-chain/
 Social Engineering ---- https://www.varonis.com/blog/?s=social+engineering
+Exploit vs Vulnerability --- https://sectigostore.com/blog/exploit-vs-vulnerability-whats-the-difference/
+Vulnerability Vs Malware --- https://www.indusface.com/blog/vulnerability-vs-malware-difference/
