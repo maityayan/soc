@@ -1,1 +1,6 @@
 IPS vs IDS -- https://www.varonis.com/blog/ids-vs-ips/
+MitM ----- https://www.varonis.com/blog/man-in-the-middle-attack/
+DDoS --- https://www.varonis.com/blog/what-is-a-ddos-attack/
+Botnet --- https://www.varonis.com/blog/the-mirai-botnet-attack-and-revenge-of-the-internet-of-things/
+Killchain Process --- https://www.varonis.com/blog/cyber-kill-chain/
+Social Engineering ---- https://www.varonis.com/blog/?s=social+engineering
