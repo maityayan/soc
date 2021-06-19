@@ -1,0 +1,56 @@
+CIM Electrical 
+
+
+INDIA --
+
+L ---- red
+N ---- green
+E --- Black 
+
+
+
+USA --
+L ---- green
+N ---- red
+E --- black
+
+------------------------------------------------------------------------------
+
+
+
+Japan -----
+
+L --  
+N -- 
+E --
+
+USA --
+
+| eval L=case(country="USA" AND color="green","Amber")
+
+INDIA ---
+
+| eval L=case(country="India" AND color="red","Amber")
+
+
+------------------------------------------------------------------------
+
+INDIA --
+
+L ---- red
+N ---- green
+E --- Black 
+
+
+
+USA --
+A ---- green
+R ---- red
+E --- black
+
+------------------------------------------------------------------------------
+
+JAPAN ---
+
+| eval L=A
+
