@@ -1,0 +1,10 @@
+| tstats count from datamodel=Network_Traffic.All_Traffic by All_Traffic.dest_ip, All_Traffic.action,All_Traffic.dest_port
+| rename All_Traffic.* as * 
+| search action="allowed" AND count > 5
+ 
+ 
+ Correlation Search -- Alert
+ 
+ Excessive Number Of Allowed Connection Found In Some Dest Port - Ayan
+ 
+ 
