@@ -1,0 +1,1 @@
+ | tstats <stats_function> from datamodel=<datamodel_name> [ where <metadata>=<metadata_name> ] [ <group_by> <field_names> ]
